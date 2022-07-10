@@ -19,12 +19,6 @@ routes(app);
     res.status(200).send('Paginas disponieveis (disciplinas,professores,oferecimentos,formulario)');
   }) 
   
-
-  app.post("/disciplinas", (req,res) =>{
-    disciplinas.push(req.body);
-    res.status(200).send("Disciplina foi adicionada com sucesso");
-  })
-
   app.post("/professores", (req,res) =>{
     professores.push(req.body);
     res.status(200).send("Professor foi adicionada com sucesso");

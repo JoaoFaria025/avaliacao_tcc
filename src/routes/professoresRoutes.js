@@ -5,5 +5,5 @@ const router = express.Router();
 
 router
     .get("/professores",ProfessorController.listarProfessores)
-
+    .post("/professores", ProfessorController.cadastrarProfessores)
 export default router;
