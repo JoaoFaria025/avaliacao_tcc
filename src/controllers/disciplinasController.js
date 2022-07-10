@@ -19,6 +19,20 @@ class DisciplinaController{
             }
         })
     }
+// FINALIZAR
+    static consultarDisciplinaExistente = (req,res) => {
+        const codigo = disciplinas.where({codDisc:codigo});
+
+        disciplinas.findOne(codigo, (err, disciplinas) =>{
+            if(err){
+                res.status(400).send({message:`${err.message} - Disciplina não existente na base`})
+            }
+            if(codigo){
+                res.status(200).json(disciplinas)
+            }
+        })
+        
+    }
 }
 
 export default DisciplinaController;
