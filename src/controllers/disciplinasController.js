@@ -13,7 +13,7 @@ class DisciplinaController{
 
         disciplina.save((err) => {
             if(err){
-                res.status(500).send({message:`${err.message} - falaha ao cadastrar disciplina`})
+                res.status(500).send({message:`${err.message} - falha ao cadastrar disciplina`})
             }else{
                 res.status(201).send(disciplina.toJSON())
             }
@@ -21,14 +21,14 @@ class DisciplinaController{
     }
 // FINALIZAR
     static consultarDisciplinaExistente = (req,res) => {
-        const codigo = disciplinas.where({codDisc:codigo});
+        const codDisc = req.params.codDisc;
 
-        disciplinas.findOne(codigo, (err, disciplinas) =>{
+        disciplinas.findById(codDisc, (err, disciplinas) =>{
             if(err){
                 res.status(400).send({message:`${err.message} - Disciplina não existente na base`})
             }
-            if(codigo){
-                res.status(200).json(disciplinas)
+            if(codDisc){
+                res.status(200).json(disciplinas).send({message:"Disciplina existe no bd"})
             }
         })
         
