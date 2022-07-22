@@ -1,6 +1,7 @@
 import express from "express";
 import disciplinas from "./disciplinasRoutes.js";
 import professores from "./professoresRoutes.js";
+import formulario from "./formularioRoutes.js";
 
 const routes = (app) => {
     app.route('/').get((req,res) =>{
@@ -10,7 +11,8 @@ const routes = (app) => {
     app.use(
         express.json(),
         disciplinas,
-        professores
+        professores,
+        formulario
     )
 }
 

@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const disciplinaSchema = new mongoose.Schema(
     {
-        codDisc: {type:String, required: true},
+        codDisc: {type:String, required: true, unique:true},
         nome: {type:String, required: true}
     }
 );
