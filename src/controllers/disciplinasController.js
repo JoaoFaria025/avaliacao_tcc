@@ -1,5 +1,6 @@
 import disciplinas from "../models/Disciplina.js"
 
+
 class DisciplinaController{
     
     static listarDisciplinas = (req,res) =>{
@@ -7,7 +8,6 @@ class DisciplinaController{
             res.status(200).json(disciplinas)
           })
     }
-
     static cadastrarDisciplinas = (req,res) => {
         let disciplina = new disciplinas(req.body);
 
@@ -21,17 +21,18 @@ class DisciplinaController{
     }
 // FINALIZAR
     static consultarDisciplinaExistente = (req,res) => {
-        const codDisc = req.params.codDisc;
-
-        disciplinas.findById(codDisc, (err, disciplinas) =>{
-            if(err){
-                res.status(400).send({message:`${err.message} - Disciplina não existente na base`})
-            }
-            if(codDisc){
-                res.status(200).json(disciplinas).send({message:"Disciplina existe no bd"})
-            }
-        })
-        
+        const id = req.params.id;
+        var name = id;
+        disciplinas.findOne({codDisc:{
+            $regex: new RegExp(name, "ig")
+        }})
+          .exec((err, disciplinas) => {
+          if(err) {
+            res.status(400).send({message: `${err.message} - Id do livro não localizado.`})
+          } else {
+            res.status(200).send(disciplinas);
+          }
+        })  
     }
 }
 

@@ -8,6 +8,8 @@ const routes = (app) => {
         res.status(200).send({titulo:"Paginas disponieveis (disciplinas,professores,oferecimentos,formulario)"})
     })
 
+  
+
     app.use(
         express.json(),
         disciplinas,

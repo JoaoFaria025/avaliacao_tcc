@@ -5,7 +5,7 @@ const router = express.Router();
 
 router
     .get("/disciplinas",DisciplinaController.listarDisciplinas)
-    .get("/disciplinas/:codDisc",DisciplinaController.consultarDisciplinaExistente)
+    .get("/disciplinas/:id",DisciplinaController.consultarDisciplinaExistente)
     .post("/disciplinas", DisciplinaController.cadastrarDisciplinas)
 
 export default router;
