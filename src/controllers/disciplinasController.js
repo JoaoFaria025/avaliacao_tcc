@@ -32,7 +32,7 @@ class DisciplinaController{
         }
       
         if (!valuesUser || valuesUser.length === 0) {
-            res.status(500).send({message:` Não existe no BD`})
+            res.status(500).send({message:` Não existe no bd`})
         }
         res.json(valuesUser);
       };
