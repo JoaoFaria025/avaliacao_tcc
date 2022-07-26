@@ -36,7 +36,6 @@ class DisciplinaController{
         }
         res.json(valuesUser);
       };
-
 }
 
 export default DisciplinaController;
