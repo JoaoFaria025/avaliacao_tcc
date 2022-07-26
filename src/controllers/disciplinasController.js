@@ -19,21 +19,24 @@ class DisciplinaController{
             }
         })
     }
-// FINALIZAR
-    static consultarDisciplinaExistente = (req,res) => {
-        const id = req.params.id;
-        var name = id;
-        disciplinas.findOne({codDisc:{
-            $regex: new RegExp(name, "ig")
-        }})
-          .exec((err, disciplinas) => {
-          if(err) {
-            res.status(400).send({message: `${err.message} - Id do livro não localizado.`})
-          } else {
-            res.status(200).send(disciplinas);
-          }
-        })  
-    }
+    
+    static getUserId = async (req, res, next) => {
+        const userID = req.params.codDisc;
+        console.log(userID)
+        let valuesUser;
+        //GET MONGO DB:
+        try {
+          valuesUser = await disciplinas.findOne({ codDisc: userID });
+        } catch (err) {
+            return next(res.status(500).send({message:` Não existe no BD`}))
+        }
+      
+        if (!valuesUser || valuesUser.length === 0) {
+            res.status(500).send({message:` Não existe no BD`})
+        }
+        res.json(valuesUser);
+      };
+
 }
 
 export default DisciplinaController;
