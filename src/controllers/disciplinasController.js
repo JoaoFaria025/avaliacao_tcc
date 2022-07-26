@@ -24,7 +24,7 @@ class DisciplinaController{
         const userID = req.params.codDisc;
         console.log(userID)
         let valuesUser;
-        //GET MONGO DB:
+        
         try {
           valuesUser = await disciplinas.findOne({ codDisc: userID });
         } catch (err) {
