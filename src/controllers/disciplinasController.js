@@ -24,11 +24,11 @@ class DisciplinaController{
         const userID = req.params.codDisc;
         console.log(userID)
         let valuesUser;
-        //GET MONGO DB:
+        
         try {
           valuesUser = await disciplinas.findOne({ codDisc: userID });
         } catch (err) {
-            return next(res.status(500).send({message:` Não existe no BD`}))
+            return (res.status(500).send({message:` Não existe no BD`}))
         }
       
         if (!valuesUser || valuesUser.length === 0) {
