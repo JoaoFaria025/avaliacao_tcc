@@ -1,9 +1,7 @@
 import app from './src/app.js'
 
 
-const port = process.env.PORT || 3000;
 
-
-app.listen(port, () => {
-  console.log(`Servidor escutando em http://localhost:${port}`)
+app.listen(process.env.PORT || 3000, function(){
+  console.log("Servidor escutando em http://localhost:$",this.address().port, app.settings.env)
 })
