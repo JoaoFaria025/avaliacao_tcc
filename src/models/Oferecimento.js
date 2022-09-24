@@ -7,8 +7,8 @@ const oferecimentoSchema = new mongoose.Schema(
         codProf: {type:String},
         matriculas: {type:Number, required: true},
         semestre: {type:Number, required: true},
-        inicio: {type:String, required: true, unique:true},
-        fim: {type:String, required: true, unique:true},
+        inicio: {type:String, required: true},
+        fim: {type:String, required: true},
         ano: {type:Number, required: true},
     }
 );
