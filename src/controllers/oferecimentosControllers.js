@@ -18,6 +18,23 @@ class OferecimentoController{
             }
         })
     }
+    static getCodTurma = async (req, res, next) => {
+        const userTurma = req.params.codTurma;
+        console.log(userTurma)
+        let valuesUser;
+        
+        try {
+          valuesUser = await oferecimentos.findOne({ codTurma: userTurma });
+        } catch (err) {
+            return (res.status(500).send({message:` Não existe no BD`}))
+        }
+      
+        if (!valuesUser || valuesUser.length === 0) {
+            return res.status(500).send({message:` Não existe no bd`})
+        }
+        res.json(valuesUser);
+
+      };
 }
 
 export default OferecimentoController;

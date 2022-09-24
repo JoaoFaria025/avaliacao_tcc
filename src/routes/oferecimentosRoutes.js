@@ -5,6 +5,7 @@ const router = express.Router();
 
 router
     .get("/turmas", OferecimentoController.listarOferecimentos)
+    .get("/turmas/:codTurma",OferecimentoController.getCodTurma)
     .post("/turmas", OferecimentoController.cadastrarOferecimentos)
 
 
