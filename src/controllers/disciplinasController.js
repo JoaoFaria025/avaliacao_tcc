@@ -20,6 +20,19 @@ class DisciplinaController{
         })
     }
     
+    static excluirDisciplinas = (req, res) => {
+        const id = req.params.codDisc;
+    
+        disciplinas.findOneAndDelete(id, (err) => {
+          if(!err){
+            res.status(200).send({message: 'Disciplina removida com sucesso'})
+          } else {
+            res.status(500).send({message: err.message})
+          }
+        })
+      }
+    
+    
     static getUserId = async (req, res, next) => {
         const userID = req.params.codDisc;
         console.log(userID)

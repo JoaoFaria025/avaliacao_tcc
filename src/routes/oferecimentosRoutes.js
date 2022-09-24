@@ -1,9 +1,11 @@
 import express from "express";
-import OferecimentoController from "../controllers/oferecimentosController.js";
+import OferecimentoController from "../controllers/oferecimentosControllers.js";
 
 const router = express.Router();
 
 router
-    .get("/oferecimentos", OferecimentoController.listarOferecimentos)
+    .get("/turmas", OferecimentoController.listarOferecimentos)
+    .post("/turmas", OferecimentoController.cadastrarOferecimentos)
+
 
 export default router;
