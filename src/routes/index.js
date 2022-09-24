@@ -2,10 +2,11 @@ import express from "express";
 import disciplinas from "./disciplinasRoutes.js";
 import professores from "./professoresRoutes.js";
 import formulario from "./formularioRoutes.js";
+import oferecimento from "./oferecimentosRoutes.js";
 
 const routes = (app) => {
     app.route('/').get((req,res) =>{
-        res.status(200).send({titulo:"Paginas disponieveis (disciplinas,professores,oferecimentos,formulario)"})
+        res.status(200).send({titulo:"Paginas disponieveis (disciplinas,professores,formulario)"})
     })
 
   
@@ -14,7 +15,8 @@ const routes = (app) => {
         express.json(),
         disciplinas,
         professores,
-        formulario
+        formulario,
+        oferecimento
     )
 }
 

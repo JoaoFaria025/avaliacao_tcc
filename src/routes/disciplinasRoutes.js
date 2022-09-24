@@ -7,5 +7,6 @@ router
     .get("/disciplinas",DisciplinaController.listarDisciplinas)
     .get("/disciplinas/:codDisc",DisciplinaController.getUserId)
     .post("/disciplinas", DisciplinaController.cadastrarDisciplinas)
+    .delete("/disciplinas/:codDisc", DisciplinaController.excluirDisciplinas)
 
 export default router;
