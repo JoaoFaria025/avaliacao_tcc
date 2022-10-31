@@ -1,10 +1,11 @@
 import mongoose from "mongoose";
-
+/* OFERECIMENTOS se refere a TURMA */ 
 const oferecimentoSchema = new mongoose.Schema(
     {
         codTurma: {type:String, required: true, unique:true},
         codDisc: {type:String},
         codProf: {type:String},
+        codProf_dois: {type:String},
         matriculas: {type:Number, required: true},
         semestre: {type:Number, required: true},
         inicio: {type:String, required: true},
@@ -13,7 +14,7 @@ const oferecimentoSchema = new mongoose.Schema(
     }
 );
 
-const oferecimentos = mongoose.model('oferecimentos',oferecimentoSchema);
+const oferecimentos = mongoose.model('turmas',oferecimentoSchema);
 
 export default oferecimentos;
 

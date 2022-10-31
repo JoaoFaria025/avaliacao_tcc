@@ -14,7 +14,7 @@ class formularioController{
             if(err){
                 res.status(500).send({message:`${err.message} - falha ao cadastrar respostas dos forms`})
             }else{
-                res.status(201).send(forms.toJSON())
+                res.status(200).send(forms.toJSON())
             }
         })
     }
