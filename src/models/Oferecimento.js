@@ -3,8 +3,8 @@ import mongoose from "mongoose";
 const oferecimentoSchema = new mongoose.Schema(
     {
         codTurma: {type:String, required: true, unique:true},
-        codDisc: {type:String},
-        codProf: {type:String},
+        codDisc: {type:String,required: true,},
+        codProf: {type:String, required: true,},
         codProf_dois: {type:String},
         matriculas: {type:Number, required: true},
         semestre: {type:Number, required: true},
