@@ -5,6 +5,7 @@ const router = express.Router();
 
 router
     .get("/formulario", FormularioController.listarRespostasForms)
+    .get("/formulario/:codDisc",FormularioController.getUserId)
     .post("/formulario",FormularioController.cadastrarRespostasForms)
 
 export default router;
