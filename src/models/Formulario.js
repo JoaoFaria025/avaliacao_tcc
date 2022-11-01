@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const formularioSchema = new mongoose.Schema(
     {
-        codDisc: {type:String, required: true, unique:true},
+        codTurma: {type:String, required: true},
         dataIni: {type:String, required: true},
         dataFim: {type:String, required: true},
         questoes: [{
