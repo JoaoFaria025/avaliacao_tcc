@@ -6,6 +6,9 @@ import oferecimento from "./oferecimentosRoutes.js";
 
 const routes = (app) => {
     app.route('/').get((req,res, next) =>{
+        if (req.error !== undefined) {
+            return next();
+          }
         res.status(200).send({titulo:"Paginas disponieveis (disciplinas,professores,formulario)"})
         // res.setHeader('Access-Control-Allow-Origin', '*');
         // res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
@@ -13,24 +16,24 @@ const routes = (app) => {
         // res.setHeader('Access-Control-Allow-Credentials', true); // If need
         // res.send('cors problem fixed:)');
     })
-    // app.use(function (req, res, next) {
+    app.use(function (req, res, next) {
 
-    //     // Website you wish to allow to connect
-    //     res.setHeader('Access-Control-Allow-Origin', '*');
+        // Website you wish to allow to connect
+        res.setHeader('Access-Control-Allow-Origin', '*');
     
-    //     // Request methods you wish to allow
-    //     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+        // Request methods you wish to allow
+        res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
     
-    //     // Request headers you wish to allow
-    //     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+        // Request headers you wish to allow
+        res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
     
-    //     // Set to true if you need the website to include cookies in the requests sent
-    //     // to the API (e.g. in case you use sessions)
-    //     res.setHeader('Access-Control-Allow-Credentials', true);
+        // Set to true if you need the website to include cookies in the requests sent
+        // to the API (e.g. in case you use sessions)
+        res.setHeader('Access-Control-Allow-Credentials', true);
     
-    //     // Pass to next layer of middleware
-    //     next();
-    // });
+        // Pass to next layer of middleware
+        next();
+    });
   
 
     app.use(
