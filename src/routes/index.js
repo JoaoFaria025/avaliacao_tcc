@@ -9,7 +9,6 @@ const routes = (app) => {
         res.status(200).send({titulo:"Paginas disponieveis (disciplinas,professores,formulario)"})
 
         res.send('cors problem fixed:)');
-        return next();
     })
     app.use(function (req, res, next) {
 
