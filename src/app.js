@@ -15,7 +15,7 @@ app.use(express.json())
 
 app.use((req, res, next) => {
   app.use(cors());
-   //Website you wish to allow to connect
+        console.log('entrou no middleware');
         res.setHeader('Access-Control-Allow-Origin', '*');
     
         // Request methods you wish to allow
