@@ -19,18 +19,19 @@ class formularioController{
         })
     }
     static getUserId = async (req, res, next) => {
-        const userID = req.params.codDisc;
+        const userID = req.params.codTurma;
         console.log(userID)
         let valuesUser;
         
         try {
-          valuesUser = await formulario.findOne({ codDisc: userID });
+          valuesUser = await formulario.findOne({ codTurma: userID });
         } catch (err) {
-            return (res.status(500).send({message:` Não existe no BD`}))
+            return (res.status(500).send({message:` Não existe no BD`}));
         }
       
         if (!valuesUser || valuesUser.length === 0) {
-            res.status(500).send({message:` Não existe no bd`})
+            return (res.status(500).send({message:` Não existe no bd`}));
+            
         }
         res.json(valuesUser);
       };
