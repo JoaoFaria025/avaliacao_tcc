@@ -30,7 +30,7 @@ class OferecimentoController{
         }
       
         if (!valuesUser || valuesUser.length === 0) {
-            return res.status(500).send({message:` Não existe no bd`})
+            return (res.status(500).send({message:` Não existe no bd`}))
         }
         res.json(valuesUser);
 
